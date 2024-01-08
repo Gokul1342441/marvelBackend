@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config(); // Load environment variables
@@ -8,7 +7,7 @@ const app = express();
 const port = 3000;
 const mongoURI = `mongodb+srv://gokgokraj:${process.env.MONGODB_PASSWORD}@marvel.gy4ixou.mongodb.net/marvelDB?retryWrites=true&w=majority`;
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors()); // Enable CORS for all routes
 
 // Define the schema
