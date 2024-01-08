@@ -32,7 +32,7 @@ mongoose.connect(mongoURI)
   .then(() => {
     console.log('Connected to MongoDB');
   })
-  .catch((err) => {
+  .catch((err: any) => {
     console.error('Error connecting to MongoDB:', err);
     process.exit(1);
   });
@@ -42,7 +42,7 @@ app.get('/characters', async (req: Request, res: Response) => {
   try {
     const characters = await CharacterModel.find();
     res.json(characters);
-  } catch (err) {
+  } catch (err: any) {
     console.error('Error fetching characters:', err);
     res.status(500).send('Internal Server Error');
   }
@@ -55,7 +55,7 @@ app.post('/characters', async (req: Request, res: Response) => {
   try {
     const newCharacter = await CharacterModel.create(characterData);
     res.status(201).json(newCharacter);
-  } catch (err) {
+  } catch (err: any) {
     console.error('Error inserting character:', err);
     res.status(500).send('Internal Server Error');
   }
@@ -72,7 +72,7 @@ app.delete('/characters/:id', async (req: Request, res: Response) => {
     } else {
       res.status(204).send();
     }
-  } catch (err) {
+  } catch (err: any) {
     console.error('Error deleting character:', err);
     res.status(500).send('Internal Server Error');
   }
