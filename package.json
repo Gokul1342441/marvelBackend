@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "node index.js",
-    "build": "node index.js"
+    "start": "node src/index.js",
+    "build": "node src/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
